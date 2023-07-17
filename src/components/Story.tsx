@@ -1,5 +1,6 @@
 import { Article } from "@/types/categories";
 import React from "react";
+import ReadMoreButton from "./ReadMoreButton";
 
 interface Props {
   story: Article;
@@ -30,6 +31,7 @@ const Article: React.FC<Props> = ({ story }) => {
             <p>{story.published_at}</p>
           </footer>
         </div>
+        <ReadMoreButton story={story} />
       </div>
     </article>
   );
