@@ -26,3 +26,9 @@ stepzen import curl --request GET 'https://jsonplaceholder.typicode.com/todos/1'
 # Type stepzen start in your terminal
 stepzen start
 ```
+
+### Dark Mode
+
+I'm using this approach to accomplish the dark mode in NextJs13
+
+`https://github.com/pacocoursey/next-themes/issues/152#issuecomment-1364280564`

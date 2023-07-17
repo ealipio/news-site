@@ -16,7 +16,7 @@ export async function fetchNews(
     {
       method: "POST",
       cache: isDynamic ? "no-cache" : "default",
-      next: isDynamic ? { revalidate: 0 } : { revalidate: 20 },
+      next: isDynamic ? { revalidate: 0 } : { revalidate: 30 },
       headers: {
         "Content-Type": "application/json",
       },
