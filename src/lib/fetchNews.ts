@@ -1,6 +1,7 @@
 import { query } from "./../constants/graphql";
 import { Category } from "@/types/categories";
 import { URL } from "./config";
+import { data as myData } from "@/constants/data";
 
 export async function fetchNews(
   category?: Category | string,
@@ -14,22 +15,29 @@ export async function fetchNews(
   // }
   //const url = `http://api.mediastack.com/v1/news?access_key=${accessKey}`;
   //const response = await fetch(`${URL}/api?access_key=${accessKey}`, {
-  const response = await fetch(`${URL}/api`, {
-    method: "POST",
-    cache: isDynamic ? "no-cache" : "default",
-    next: isDynamic ? { revalidate: 0 } : { revalidate: 20 },
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables: {
-        categories: category,
-        keywords,
+  try {
+    const response = await fetch(`${URL}/api`, {
+      method: "POST",
+      cache: isDynamic ? "no-cache" : "default",
+      next: isDynamic ? { revalidate: 0 } : { revalidate: 20 },
+      headers: {
+        "Content-Type": "application/json",
       },
-    }),
-  });
-  const data = await response.json();
+      body: JSON.stringify({
+        query,
+        variables: {
+          categories: category,
+          keywords,
+        },
+      }),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch {
+    return myData;
+  }
+
   //const articlesWithImage = data.filter((article: Article) => article.image);
-  return data;
+  //return data;
 }
