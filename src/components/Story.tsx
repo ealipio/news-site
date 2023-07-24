@@ -1,6 +1,7 @@
 import { Article } from "@/types/categories";
 import React from "react";
 import ReadMoreButton from "./ReadMoreButton";
+import LiveTimeStamp from "./LiveTimeStamp";
 
 interface Props {
   story: Article;
@@ -28,7 +29,7 @@ const Article: React.FC<Props> = ({ story }) => {
 
           <footer className="ml-auto flex space-x-1 pt-5 text-right text-xs italic text-gray-400">
             <p>{story.source}</p>
-            <p>{story.published_at}</p>
+            <LiveTimeStamp time={story.published_at} />
           </footer>
         </div>
         <ReadMoreButton story={story} />

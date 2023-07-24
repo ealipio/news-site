@@ -14,7 +14,7 @@ export default function NavLink(props: INavLinkProps) {
         props.isActive &&
         "text-lg font-bold underline decoration-orange-400 underline-offset-4"
       }`}
-      href={`news/${props.category}`}
+      href={`/news/${props.category}`}
     >
       {props.category}
     </Link>

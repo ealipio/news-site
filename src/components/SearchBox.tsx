@@ -7,14 +7,13 @@ type Props = {};
 export default function SearchBox({}: Props) {
   const [input, setInput] = useState("");
   const router = useRouter();
-  console.log(router);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(input);
+
     if (!input) {
       return;
     }

@@ -1,3 +1,4 @@
+import LiveTimeStamp from "@/components/LiveTimeStamp";
 import { Article as Story } from "@/types/categories";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -36,7 +37,11 @@ export default function Article({ searchParams }: Props) {
           <div className="flex space-x-2 divide-x-2">
             <h2 className="font-bold">{story.author || "unknown"}</h2>
             <h2 className="pl-4 font-bold">{story.source}</h2>
-            <p className="pl-4">{story.published_at}</p>
+            <p className="pl-4">
+              <LiveTimeStamp time={story.published_at} />
+
+              {/* {JSON.stringify(story.published_at)} */}
+            </p>
           </div>
 
           <p className="pt-4">{story.description}</p>
