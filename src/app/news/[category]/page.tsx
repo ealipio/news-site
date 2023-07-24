@@ -17,6 +17,6 @@ export default async function Page({ params: { category } }: Props) {
   );
 }
 
-export async function generateStaticParams() {
-  return categories.map((category) => ({ category }));
-}
+// export async function generateStaticParams() {
+//   return categories.map((category) => ({ category }));
+// }
