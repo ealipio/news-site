@@ -27,8 +27,21 @@ export default function Article({ searchParams }: Props) {
 
   return (
     <article>
-      {imageCard}
-      <section>{story.title}</section>
+      <section className="flex flex-col px-0 pb-24 lg:flex-row lg:px-10">
+        {imageCard}
+
+        <div className="px-10">
+          <h1 className="header-title px-0 pb-2 no-underline">{story.title}</h1>
+
+          <div className="flex space-x-2 divide-x-2">
+            <h2 className="font-bold">{story.author || "unknown"}</h2>
+            <h2 className="pl-4 font-bold">{story.source}</h2>
+            <p className="pl-4">{story.published_at}</p>
+          </div>
+
+          <p className="pt-4">{story.description}</p>
+        </div>
+      </section>
     </article>
   );
 }

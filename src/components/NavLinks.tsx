@@ -11,7 +11,7 @@ type Props = {};
 export default function NavLinks({}: Props) {
   const pathname = usePathname();
 
-  const isActive = (path: string) => pathname.split("/").at(-1) === path;
+  const isActive = (path: string) => pathname?.split("/")?.at(-1) === path;
 
   return (
     <div className="mx-auto grid max-w-6xl grid-cols-4 gap-4 border-b pb-10 text-xs md:grid-cols-7 md:text-sm">
